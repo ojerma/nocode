@@ -28,14 +28,17 @@ public class UserRegistrationPage {
 
 
     public void pushSignUpHeaderButton() {
+
         signUpHeaderButton.click();
     }
 
     public void noCodeLogoIsDisplayed() {
+
         noCodeLogoHeader.shouldBe(visible);
     }
 
     public void selectDropdownRole(){
+
         dropdownRole.click();
     }
 
@@ -71,5 +74,7 @@ public class UserRegistrationPage {
 
     }
     public void invalidCredText(String expectedText){
+
         errorMessage.shouldHave(text(expectedText));
-    }}
+    }
+}

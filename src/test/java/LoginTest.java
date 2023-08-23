@@ -1,24 +1,31 @@
 import io.qameta.allure.Description;
-import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import utils.RandomDataGenerator;
 
-
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
-
 public class LoginTest extends BaseTest{
-    public String emailValue = RandomDataGenerator.generateRandomEmail();
+    public String randomEmailValue = RandomDataGenerator.generateRandomEmail();
+    String randomPasswordValue = RandomDataGenerator.generateRandomPassword(8);
+
+
+    @Test
+    @Description("Login with random data is not successful")
+    public void loginWithRandomDataNotSuccess(){
+        loginPage.pushSignInHeaderButton();
+        loginPage.enterEmail(randomEmailValue);
+        loginPage.enterPassword(randomPasswordValue);
+        loginPage.pushSignInButtonLoginPage();
+        welcomePage.avatarButtonIsVisible();
+    }
     @Test
     @Description("Login with valid data teacher success")
-    public void successLoginTeacher(){
+    public void successLoginTeacherNew(){
         loginPage.pushSignInHeaderButton();
         loginPage.enterEmail("roxanne@example.com");
         loginPage.enterPassword("123456");
         loginPage.pushSignInButtonLoginPage();
-        welcomePage.avatarButtonClick();
-        sleep(10000);
+        welcomePage.avatarButtonIsVisible();
     }
+
     @Test
     @Description("Login with valid data student success")
     public void successLoginStudent(){
@@ -26,36 +33,34 @@ public class LoginTest extends BaseTest{
         loginPage.enterEmail("malik@example.com");
         loginPage.enterPassword("123456");
         loginPage.pushSignInButtonLoginPage();
-        welcomePage.avatarButtonClick();
-        sleep(10000);
+        welcomePage.avatarButtonIsVisible();
     }
 
     @Test
     @Description("Reset password link redirected to reset password form")
-    public void forgotPassword(){
+    public void successfulForgotPasswordLink(){
         loginPage.pushSignInHeaderButton();
         loginPage.forgotPasswordButton();
-        sleep(5000);
+        forgotPasswordPage.emailInputFieldIsVisible();
     }
 
     @Test
     @Description("Login with empty email field not possible")
-    public void loginEmptyEmailFailure(){
+    public void NotSuccessLoginEmptyEmail(){
         loginPage.pushSignInHeaderButton();
+        loginPage.enterEmail("");
         loginPage.enterPassword("123456");
         loginPage.pushSignInButtonLoginPage();
         loginPage.invalidCredText("Invalid email or password");
-        sleep(5000);
     }
 
     @Test
     @Description("Login with empty input fields not possible")
-    public void loginEmptyInputFields(){
+    public void NotSuccessLoginEmptyInputFields(){
         loginPage.pushSignInHeaderButton();
         loginPage.enterEmail("");
         loginPage.enterPassword("");
         loginPage.pushSignInButtonLoginPage();
         loginPage.invalidCredText("Invalid email or password");
-        sleep(5000);
     }
 }

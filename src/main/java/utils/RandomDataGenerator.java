@@ -11,14 +11,35 @@ public class RandomDataGenerator {
     public static String generateRandomEmail() {
         StringBuilder email = new StringBuilder();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 8; i++) {
             int index = RANDOM.nextInt(CHARACTERS.length());
             email.append(CHARACTERS.charAt(index));
         }
+        int domainChoice = RANDOM.nextInt(4);
+        switch (domainChoice) {
+            case 0:
+                email.append("@example.com");
+                break;
+            case 1:
+                email.append("@gmail.com");
+                break;
+            case 2:
+                email.append("@outlook.com");
+                break;
+            case 3:
+                email.append("@protonmail.com");
+                break;
+            case 4:
+                email.append("@yahoo.com");
+                break;
+        }
 
-        email.append("@example.com");
         return email.toString();
     }
+
+        //email.append("@example.com");
+        //return email.toString();
+
 
     public static String generateRandomPassword(int length) {
         StringBuilder password = new StringBuilder();

@@ -50,6 +50,7 @@ public class LoginPage {
 
 
     public void invalidCredText(String expectedText){
+
         errorMessage.shouldHave(text(expectedText));
     }
 

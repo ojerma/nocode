@@ -7,9 +7,11 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class WelcomePage {
-    private SelenideElement avatarButton = $(byXpath("//button[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-17qbyv7']"));
+    private SelenideElement avatarButtonStudent = $(byXpath("//button[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-17qbyv7']"));
 
-    public void avatarButtonClick(){
-        avatarButton.shouldBe(visible).click();
+    public void avatarButtonIsVisible() {
+        avatarButtonStudent.shouldBe(visible);
     }
 }
+
+
