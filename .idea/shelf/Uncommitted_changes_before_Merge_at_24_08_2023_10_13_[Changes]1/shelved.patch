@@ -1,0 +1,41 @@
+Index: src/test/java/UserRegistrationTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/UserRegistrationTest.java b/src/test/java/UserRegistrationTest.java
+--- a/src/test/java/UserRegistrationTest.java	
++++ b/src/test/java/UserRegistrationTest.java	
+@@ -21,7 +21,6 @@
+         userRegistrationPage.checkboxChecked();
+         userRegistrationPage.pushSignUpButton();
+         welcomePage.avatarButtonClick();
+-        sleep(5000);
+     }
+ 
+     @Test @Description("Registration with empty email field is not successful")
+@@ -35,7 +34,6 @@
+         userRegistrationPage.checkboxChecked();
+         userRegistrationPage.pushSignUpButton();
+         userRegistrationPage.invalidCredText("Please make sure there are no empty required fields.");
+-        sleep(5000);
+     }
+ 
+     @Test @Description("Registration with student role is successful")
+@@ -49,7 +47,6 @@
+         userRegistrationPage.checkboxChecked();
+         userRegistrationPage.pushSignUpButton();
+         welcomePage.avatarButtonClick();
+-        sleep(5000);
+     }
+ 
+     @Test @Description("Registration with empty role is not successful")
+@@ -62,7 +59,6 @@
+         userRegistrationPage.checkboxChecked();
+         userRegistrationPage.pushSignUpButton();
+         userRegistrationPage.invalidCredText("Please make sure there are no empty required fields.");
+-        sleep(5000);
+ 
+     }
+ }
+\ No newline at end of file

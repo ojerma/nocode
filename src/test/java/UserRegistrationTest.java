@@ -24,7 +24,6 @@ public class UserRegistrationTest extends BaseTest {
         welcomePage.avatarButtonIsVisible();
         ApiRequests requests = new ApiRequests();
         requests.deleteRequest("user/" + randomEmailValue);
-
         }
 
     @Test @Description("Registration with empty email field is not successful")
