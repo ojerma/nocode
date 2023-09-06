@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="461f67e1-d213-463b-9361-f5c9a18d33e7" name="Changes" comment="project">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/ForgotPasswordPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ApiRequests.java" afterDir="false" />
+    <list default="true" id="461f67e1-d213-463b-9361-f5c9a18d33e7" name="Changes" comment="project 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/UserRegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/UserRegistrationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WelcomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/UserRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserRegistrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,12 +71,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.successLoginTeacherNew" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserRegistrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="nocode" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LoginTest" />
-      <option name="METHOD_NAME" value="successLoginTeacherNew" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="UserRegistrationTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,10 +113,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.LoginTest.loginWithRandomDataNotSuccess" />
-        <item itemvalue="JUnit.UserRegistrationTest.FailureRegistrRoleNotSelected" />
-        <item itemvalue="JUnit.LoginTest.successLoginTeacherNew" />
         <item itemvalue="JUnit.UserRegistrationTest.successRegistrationTeacher" />
         <item itemvalue="JUnit.UserRegistrationTest.successRegistrationStudent" />
+        <item itemvalue="JUnit.UserRegistrationTest.FailureRegistrRoleNotSelected" />
+        <item itemvalue="JUnit.UserRegistrationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -146,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692087677814</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="project 2">
+      <created>1692864987774</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1692864987774</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +160,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="project" />
-    <option name="LAST_COMMIT_MESSAGE" value="project" />
+    <MESSAGE value="project 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="project 2" />
   </component>
 </project>

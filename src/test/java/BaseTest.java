@@ -12,7 +12,7 @@ import java.util.Random;
 import static com.codeborne.selenide.Selenide.*;
 
 public class BaseTest {
-    final String BASE_URL = "https://jere237.softr.app/";
+    final String BASE_URL = "https://erich416.softr.app/";
         //"https://jere237.softr.app/"; "https://erich416.softr.app/";
 
 

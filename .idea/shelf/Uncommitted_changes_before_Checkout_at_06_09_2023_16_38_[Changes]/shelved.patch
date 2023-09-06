@@ -1,0 +1,135 @@
+Index: src/test/java/UserRegistrationTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import io.qameta.allure.Description;\r\nimport org.junit.Test;\r\nimport utils.RandomDataGenerator;\r\n\r\nimport static com.codeborne.selenide.Selenide.open;\r\nimport static com.codeborne.selenide.Selenide.sleep;\r\nimport static org.junit.Assert.assertEquals;\r\n\r\npublic class UserRegistrationTest extends BaseTest {\r\n    public String randomEmailValue = RandomDataGenerator.generateRandomEmail();\r\n    String randomPasswordValue = RandomDataGenerator.generateRandomPassword(8);\r\n    String randomFullName = RandomDataGenerator.generateRandomFullName();\r\n\r\n    @Test @Description(\"Registration with teacher role is successful\")\r\n    public void successRegistrationTeacher() {\r\n        userRegistrationPage.pushSignUpHeaderButton();\r\n        userRegistrationPage.noCodeLogoIsDisplayed();\r\n        userRegistrationPage.selectTeacherRole();\r\n        userRegistrationPage.fullNameFieldValue(randomFullName);\r\n        userRegistrationPage.emailFieldValue(randomEmailValue);\r\n        userRegistrationPage.passwordFieldValue(randomPasswordValue);\r\n        userRegistrationPage.checkboxChecked();\r\n        userRegistrationPage.pushSignUpButton();\r\n        welcomePage.avatarButtonIsVisible();\r\n        ApiRequests requests = new ApiRequests();\r\n        requests.deleteRequest(\"user/\" + randomEmailValue);\r\n        }\r\n\r\n    @Test @Description(\"Registration with empty email field is not successful\")\r\n    public void FailureRegisterTeacherWithEmptyEmailField() {\r\n        userRegistrationPage.pushSignUpHeaderButton();\r\n        userRegistrationPage.noCodeLogoIsDisplayed();\r\n        userRegistrationPage.selectTeacherRole();\r\n        userRegistrationPage.fullNameFieldValue(randomFullName);\r\n        userRegistrationPage.emailFieldValue(\"\");\r\n        userRegistrationPage.passwordFieldValue(randomPasswordValue);\r\n        userRegistrationPage.checkboxChecked();\r\n        userRegistrationPage.pushSignUpButton();\r\n        userRegistrationPage.invalidCredText(\"Please make sure there are no empty required fields.\");\r\n\r\n    }\r\n\r\n    @Test @Description(\"Registration with student role is successful\")\r\n    public void successRegistrationStudent() {\r\n        userRegistrationPage.pushSignUpHeaderButton();\r\n        userRegistrationPage.noCodeLogoIsDisplayed();\r\n        userRegistrationPage.selectStudentRole();\r\n        userRegistrationPage.fullNameFieldValue(randomFullName);\r\n        userRegistrationPage.emailFieldValue(randomEmailValue);\r\n        userRegistrationPage.passwordFieldValue(randomPasswordValue);\r\n        userRegistrationPage.checkboxChecked();\r\n        userRegistrationPage.pushSignUpButton();\r\n        welcomePage.avatarButtonIsVisible();\r\n        ApiRequests requests = new ApiRequests();\r\n        requests.deleteRequest(\"user/\" + randomEmailValue);\r\n\r\n    }\r\n\r\n    @Test @Description(\"Registration with empty role is not successful\")\r\n    public void FailureRegistrRoleNotSelected() {\r\n        userRegistrationPage.pushSignUpHeaderButton();\r\n        userRegistrationPage.noCodeLogoIsDisplayed();\r\n        userRegistrationPage.fullNameFieldValue(randomFullName);\r\n        userRegistrationPage.emailFieldValue(randomEmailValue);\r\n        userRegistrationPage.passwordFieldValue(randomPasswordValue);\r\n        userRegistrationPage.checkboxChecked();\r\n        userRegistrationPage.pushSignUpButton();\r\n        userRegistrationPage.invalidCredText(\"Please make sure there are no empty required fields.\");\r\n        sleep(5000);\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/UserRegistrationTest.java b/src/test/java/UserRegistrationTest.java
+--- a/src/test/java/UserRegistrationTest.java	(revision 795139ca42b3a4516715351b6a9fe7ec7a5ef68c)
++++ b/src/test/java/UserRegistrationTest.java	(date 1694010912417)
+@@ -66,7 +66,7 @@
+         userRegistrationPage.checkboxChecked();
+         userRegistrationPage.pushSignUpButton();
+         userRegistrationPage.invalidCredText("Please make sure there are no empty required fields.");
+-        sleep(5000);
++
+ 
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"461f67e1-d213-463b-9361-f5c9a18d33e7\" name=\"Changes\" comment=\"project\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/utils/ForgotPasswordPage.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/ApiRequests.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/utils/LoginPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/utils/LoginPage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/utils/UserRegistrationPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/utils/UserRegistrationPage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/utils/WelcomePage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/utils/WelcomePage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/BaseTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/BaseTest.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/LoginTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/LoginTest.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/UserRegistrationTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/UserRegistrationTest.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/src/test/java/UserRegistrationTest.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2SYiUx4favNvvnRNFntLcg8d7Da\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\iTTaste\\IdeaProjects\\ncu\\src\\main\" />\r\n      <recent name=\"C:\\Users\\iTTaste\\IdeaProjects\\ncu\\src\\test\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"JUnit.LoginTest.loginWithRandomDataNotSuccess\">\r\n    <configuration name=\"LoginTest.loginWithRandomDataNotSuccess\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"nocode\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"LoginTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"loginWithRandomDataNotSuccess\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"LoginTest.successLoginTeacherNew\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"nocode\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"LoginTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"successLoginTeacherNew\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"UserRegistrationTest.FailureRegistrRoleNotSelected\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"nocode\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"UserRegistrationTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"FailureRegistrRoleNotSelected\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"UserRegistrationTest.successRegistrationStudent\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"nocode\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"UserRegistrationTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"successRegistrationStudent\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"UserRegistrationTest.successRegistrationTeacher\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"nocode\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"UserRegistrationTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"successRegistrationTeacher\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.LoginTest.loginWithRandomDataNotSuccess\" />\r\n        <item itemvalue=\"JUnit.UserRegistrationTest.FailureRegistrRoleNotSelected\" />\r\n        <item itemvalue=\"JUnit.LoginTest.successLoginTeacherNew\" />\r\n        <item itemvalue=\"JUnit.UserRegistrationTest.successRegistrationTeacher\" />\r\n        <item itemvalue=\"JUnit.UserRegistrationTest.successRegistrationStudent\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"461f67e1-d213-463b-9361-f5c9a18d33e7\" name=\"Changes\" comment=\"\" />\r\n      <created>1689329937624</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1689329937624</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"project\">\r\n      <created>1692087677814</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692087677814</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"project\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"project\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 795139ca42b3a4516715351b6a9fe7ec7a5ef68c)
++++ b/.idea/workspace.xml	(date 1694010929969)
+@@ -4,18 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="461f67e1-d213-463b-9361-f5c9a18d33e7" name="Changes" comment="project">
+-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/ForgotPasswordPage.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/java/ApiRequests.java" afterDir="false" />
++    <list default="true" id="461f67e1-d213-463b-9361-f5c9a18d33e7" name="Changes" comment="project 2">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/LoginPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/UserRegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/UserRegistrationPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WelcomePage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LoginTest.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/UserRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserRegistrationTest.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -33,7 +24,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
++        <entry key="$PROJECT_DIR$" value="prerelease" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -70,32 +61,30 @@
+     </key>
+   </component>
+   <component name="RunManager" selected="JUnit.LoginTest.loginWithRandomDataNotSuccess">
+-    <configuration name="LoginTest.loginWithRandomDataNotSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="nocode" />
+       <option name="PACKAGE_NAME" value="" />
+       <option name="MAIN_CLASS_NAME" value="LoginTest" />
+-      <option name="METHOD_NAME" value="loginWithRandomDataNotSuccess" />
+-      <option name="TEST_OBJECT" value="method" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="LoginTest.successLoginTeacherNew" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="LoginTest.loginWithRandomDataNotSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="nocode" />
+       <option name="PACKAGE_NAME" value="" />
+       <option name="MAIN_CLASS_NAME" value="LoginTest" />
+-      <option name="METHOD_NAME" value="successLoginTeacherNew" />
++      <option name="METHOD_NAME" value="loginWithRandomDataNotSuccess" />
+       <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="UserRegistrationTest.FailureRegistrRoleNotSelected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="UserRegistrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="nocode" />
+       <option name="PACKAGE_NAME" value="" />
+       <option name="MAIN_CLASS_NAME" value="UserRegistrationTest" />
+-      <option name="METHOD_NAME" value="FailureRegistrRoleNotSelected" />
+-      <option name="TEST_OBJECT" value="method" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -123,8 +112,8 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="JUnit.LoginTest.loginWithRandomDataNotSuccess" />
+-        <item itemvalue="JUnit.UserRegistrationTest.FailureRegistrRoleNotSelected" />
+-        <item itemvalue="JUnit.LoginTest.successLoginTeacherNew" />
++        <item itemvalue="JUnit.UserRegistrationTest" />
++        <item itemvalue="JUnit.LoginTest" />
+         <item itemvalue="JUnit.UserRegistrationTest.successRegistrationTeacher" />
+         <item itemvalue="JUnit.UserRegistrationTest.successRegistrationStudent" />
+       </list>
+@@ -146,7 +135,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1692087677814</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="project 2">
++      <created>1692864987774</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1692864987774</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -163,6 +159,7 @@
+   <component name="VcsManagerConfiguration">
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="project" />
+-    <option name="LAST_COMMIT_MESSAGE" value="project" />
++    <MESSAGE value="project 2" />
++    <option name="LAST_COMMIT_MESSAGE" value="project 2" />
+   </component>
+ </project>
+\ No newline at end of file

@@ -67,7 +67,7 @@ public class UserRegistrationTest extends BaseTest {
         userRegistrationPage.checkboxChecked();
         userRegistrationPage.pushSignUpButton();
         userRegistrationPage.invalidCredText("Please make sure there are no empty required fields.");
-        sleep(5000);
+
 
     }
 }
